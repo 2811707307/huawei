@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="html">
+    <script>
+        $(function () {
+            var oiid = getUrlParms("oiid");
+            var data4Vue = {
+                uri: 'frontBuy',
+                total: 0,
+                orderItems: [],
+                order: {address: '', post: '', receiver: '', mobile: '', userMessage: ''},
+                number:0
+            };
+            //ViewModel
+            var vue = new Vue({
+                el: '#workingArea',
+                data: data4Vue,
+                mounted: function () { //mounted　表示这个 Vue 对象加载成功了
+                    this.load();
+                },
+                methods: {
+                    load: function () {
+                        var number=0;
+                        var url = this.uri + "/?oiid=" + oiid;
+                        axios.get(url).then(function (response) {
+                            var result = response.data;
+                            vue.total = result.data.total;
+                            vue.orderItems = result.data.orderItems;
+
+                            $.each(vue.orderItems, function(index, value){
+                                number += value.number;
+                            });
+                            $("span.cartSumNumber").html("x" + number);
+                        });
+                    },
+
+
+                    submitOrder: function () {
+                        var url = "frontCreateOrder";
+                        axios.post(url, this.order).then(function (response) {
+                            var result = response.data;
+                            var oid = result.data.oid;
+                            var total = result.data.total;
+                            location.href = "pay?oid=" + oid + "&total=" + total;
+                        });
+
+
+                    }
+                }
+            });
+        })
+
+
+
+    </script>
+
+    <div class="bgDiv">
+        <div class="addressDiv">
+            <div class="addressHeader">
+                收货地址
+            </div>
+
+            <div class="addressContent">
+                <table class="addressTable">
+                    <tr>
+                        <td><span>详细地址*</span></td>
+                        <td><textarea class="form-control textArea" v-model="order.address">请如实填写真实收货地址</textarea></td>
+                    </tr>
+                    <tr>
+                        <td><span>收货人姓名*</span></td>
+                        <td><input class="form-control textArea" v-model="order.receiver" ></td>
+                    </tr>
+                    <tr>
+                        <td><span>手机号*</span></td>
+                        <td><input class="form-control textArea"  v-model="order.mobile"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="order-detail-area">
+            <div class="order-detail-content" v-for="oi in orderItems">
+                <span class="hidden calNum">{{oi.number}}</span>
+                <div class="order-detail">
+                    <img :src="'image/img/productSingle/' + oi.product.firstProductImage.id + '.jpg'" alt="">
+                    <span class="order-detail-name" style="margin-top: 15px">{{oi.product.name}}</span>
+                    <div class="pull-right">
+                        <a href=""><span>x{{oi.number}}</span></a>
+                        <a href=""><span>¥{{oi.product.promotePrice}}</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-commit">
+            <div class="order-commit-content">
+                <div>应付总额：<span>¥ {{total}}.00</span></div>
+
+                <div>总计商品： <span class="cartSumNumber" >0</span> </div>
+
+
+                <div>
+                    <button type="submit" class="submitOrderButton" @click="submitOrder">提交订单</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 30px; background-color:rgb(245,245,245);"></div>
+
+</div>
+
+</body>
+</html>

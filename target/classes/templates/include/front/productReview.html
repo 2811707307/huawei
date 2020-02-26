@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="html">
+    <div class="productReviewDiv" id="review">
+        <div class="productParameterHeaderDiv">
+            <div class="productParameterHeader">买家评论</div>
+        </div>
+
+        <div class="productReviewContentDiv" >
+            <div class="productReviewItem" v-for="r in reviews">
+                <div class="productReviewItemDesc">
+                    <div class="productReviewItemContent">
+                        {{r.content }}
+                    </div>
+
+                    <div class="productReviewItemDate">
+                        {{r.createDate|formatDateFilter('YYYY-MM-DD')}}
+                    </div>
+                </div>
+
+                <div class="productReviewItemUserInfo">
+                    {{r.user.anonymousName}}
+                    <span class="userInfoGrayPart">（匿名）</span>
+                </div>
+
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

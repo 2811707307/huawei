@@ -1,0 +1,45 @@
+#database
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/huawei?characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl    
+  thymeleaf:
+    servlet:
+      content-type: text/html
+    cache: false
+    encoding: UTF-8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    database: 0
+    port: 6379
+    password: handsomehuang
+    timeout: 3000
+    host: 116.62.161.119
+    jedis:
+      pool:
+        min-idle: 300
+        max-idle: 300
+        max-active: 2000
+        max-wait: 1000
+#  data:
+#    elasticsearch:
+#      cluster-nodes: 116.62.161.119:9300
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="html">
+    <div class="productDetailDiv">
+        <div class="middleNavigatorDiv">
+            <a href="#img">商品详情</a>
+            <a href="#propertyValues">规格参数</a>
+            <a href="#">包装与售后</a>
+            <a href="#review">用户评价({{p.reviewCount}})</a>
+        </div>
+
+        <div class="productDetailImagesDiv" id="img">
+            <img v-for="pi in p.productDetailImages" :src="'image/img/productDetail/' + pi.id +'.jpg'" alt="">
+        </div>
+
+        <div class="productParameterDiv" >
+            <div class="productParameterHeaderDiv">
+                <div class="productParameterHeader">规格参数</div>
+            </div>
+            <div class="productParameter" id="propertyValues">主要参数</div>
+            <div class="productParameterList">
+                <ul>
+                    <li v-for="pv in pvs"><lable>{{pv.property.name}}</lable><span>{{pv.value}}</span></li>
+                </ul>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

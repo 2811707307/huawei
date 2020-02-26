@@ -1,0 +1,65 @@
+body{
+    margin-top: 70px;
+}
+
+div#workingArea{
+    margin:0 40px;
+}
+
+.pageNav{
+    text-align:center;
+}
+
+.addTable{
+    margin: 0 auto;
+}
+
+.addDiv {
+    width: 400px;
+    text-align: center;
+    margin: 5px auto;
+
+    /*解决图片名字长就超出表格的问题，但是又有新bug*/
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.addPictureDiv{
+    width: 400px;
+}
+
+.addPictureTableTD{
+    padding:10px 100px;
+    text-align:center;
+    vertical-align: top;
+}
+
+.addTable td{
+    padding: 5px;
+}
+
+.editTable{
+    margin: 0 auto;
+}
+
+.editDiv{
+    width: 400px;
+    margin:0 auto;
+}
+
+.editTable td{
+    padding: 5px;
+}
+
+.productValueName{
+    display: inline-block;
+    width: 50px;
+    font-size:16px;
+    font-weight:bold;
+    margin-left:20px;
+}
+
+
+
+

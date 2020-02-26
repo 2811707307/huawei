@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="include/front/frontHeader :: header(title=${'华为专区'})"></head>
+<body>
+<div th:replace="include/front/frontNavigator :: topNavigator"></div>
+<div th:replace="include/front/frontSearch :: navigatorSearch"></div>
+<div th:replace="include/front/lunbo :: lunbo"></div>
+<div th:replace="include/front/footer :: footer"></div>
+<div th:replace="include/front/footer :: footer1"></div>
+<div th:replace="include/front/footer :: footer2"></div>
+</body>
+</html>

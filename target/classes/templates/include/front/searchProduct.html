@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="html">
+    <div class="searchProducts">
+        <div class="searchResultTitle">搜索结果 > <span>“{{word}}”</span></div>
+        <div class="productUnit" price="${p.promotePrice}" v-for="p in products">
+            <div>
+            <a :href="'product?pid='+p.id">
+                <img class="productImage" :src="'image/img/productSingle/'+p.firstProductImage.id+'.jpg'">
+            </a>
+
+            <a class="productLink" :href="'product?pid='+p.id">
+                {{p.name|subStringFilter(0,48)}}
+            </a>
+            </div>
+            <div class="productP">
+                <a :href="'product?pid='+p.id">
+                    ¥{{p.promotePrice|formatMoneyFilter}}
+                    <span style="margin-left: 10px;color: rgb(165,165,165);">多配置可选</span>
+                </a>
+            </div>
+        </div>
+
+        <div v-if="0 == products.length" class="noMatch">没有满足条件的产品</div>
+
+        <div style="clear:both"></div>
+    </div>
+</div>
+</body>
+</html>

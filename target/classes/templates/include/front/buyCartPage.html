@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="html">
+    <script>
+        $(function () {
+            var data4Vue = {
+                uri: 'frontCart',
+                orderItems: []
+            };
+            //ViewModel
+            var vue = new Vue({
+                el: '#workingArea',
+                data: data4Vue,
+                mounted: function () {
+                    this.load();
+                },
+                methods: {
+                    load: function () {
+                        var url = this.uri;
+                        axios.get(url).then(function (response) {
+                            vue.orderItems = response.data;
+
+                            vue.$nextTick(function () {
+                                cartPageRegisterListeners();
+                            });
+                        });
+                    }
+                }
+            });
+        });
+
+        var deleteOrderItemid = 0;
+
+        function CheckDeleteLink() {
+            var confirmDelete = confirm("确认要删除？");
+            if (confirmDelete)
+                return true;
+            return false;
+        }
+
+        function cartPageRegisterListeners() {
+            //购物车页面单项删除按钮功能，如果没登陆，跳转到登录页面
+            $("a.deleteOrderItem").click(function () {
+                if (!CheckDeleteLink())
+                    return;
+                var oiid = $(this).attr("oiid");
+                deleteOrderItemid = oiid;
+                var url = "frontDeleteOrderItem?oiid=" + deleteOrderItemid;
+
+                axios.get(url).then(function (response) {
+                    if (1 == response.data.code)
+                        return;
+                    else
+                        location.href = "login";
+                });
+                window.location.reload();
+            });
+
+            //购物车项前的勾选框功能
+            $("img.cartProductItemIfSelected").click(function () {
+                var selectit = $(this).attr("selectit");
+                if ("selectit" == selectit) {
+                    $(this).attr("src", "img/front/cartNotSelected.png");
+                    $(this).attr("selectit", "false")
+                    $(this).parents("tr.cartProductItemTR").css("background-color", "#fff");
+                } else {
+                    $(this).attr("src", "img/front/cartSelected.png");
+                    $(this).attr("selectit", "selectit");
+                    $(this).parents("tr.cartProductItemTR").css("background-color", "#FFF8E1");
+                }
+                syncSelect();
+                syncCreateOrderButton();
+                calcCartSumPriceAndNumber();
+            });
+
+            //选中所有的勾选框
+            $("img.selectAllItem").click(function () {
+                var selectit = $(this).attr("selectit")
+                if ("selectit" == selectit) {
+                    $("img.selectAllItem").attr("src", "img/front/cartNotSelected.png");
+                    $("img.selectAllItem").attr("selectit", "false");
+                    $(".cartProductItemIfSelected").each(function () {
+                        $(this).attr("src", "img/front/cartNotSelected.png");
+                        $(this).attr("selectit", "false");
+                        $(this).parents("tr.cartProductItemTR").css("background-color", "#fff");
+                    });
+                } else {
+                    $("img.selectAllItem").attr("src", "img/front/cartSelected.png");
+                    $("img.selectAllItem").attr("selectit", "selectit");
+                    $(".cartProductItemIfSelected").each(function () {
+                        $(this).attr("src", "img/front/cartSelected.png");
+                        $(this).attr("selectit", "selectit");
+                        $(this).parents("tr.cartProductItemTR").css("background-color", "#FFF8E1");
+                    });
+                }
+                syncCreateOrderButton();
+                calcCartSumPriceAndNumber();
+
+            });
+
+            //绑定购物车项中的数量框
+            $(".orderItemNumberSetting").keyup(function () {
+                var pid = $(this).attr("pid");
+                var stock = $("span.orderItemStock[pid=" + pid + "]").text();
+                var price = $("span.orderItemPromotePrice[pid=" + pid + "]").text();
+                var num = $(".orderItemNumberSetting[pid=" + pid + "]").val();
+
+                num = parseInt(num);
+                if (isNaN(num))
+                    num = 1;
+                if (num <= 0)
+                    num = 1;
+                if (num > stock)
+                    num = stock;
+
+                syncPrice(pid, num, price);
+            });
+
+            //数量框增加按钮
+            $(".numberPlus").click(function () {
+                var pid = $(this).attr("pid");
+                var stock = $("span.orderItemStock[pid=" + pid + "]").text();
+                var price = $("span.orderItemPromotePrice[pid=" + pid + "]").text();
+                price = price.replace(/,/g, "");
+                price = price.replace(/￥/g, "");
+
+                var num = $(".orderItemNumberSetting[pid=" + pid + "]").val();
+
+                console.log(pid + " " + num + " " + price);
+                num++;
+                if (num > stock)
+                    num = stock;
+                syncPrice(pid, num, price);
+            });
+
+            //数量框减少按钮
+            $(".numberMinus").click(function () {
+                var pid = $(this).attr("pid");
+                var stock = $("span.orderItemStock[pid=" + pid + "]").text();
+                var price = $("span.orderItemPromotePrice[pid=" + pid + "]").text();
+                price = price.replace(/,/g, "");
+                price = price.replace(/￥/g, "");
+                var num = $(".orderItemNumberSetting[pid=" + pid + "]").val();
+                --num;
+                if (num <= 0)
+                    num = 1;
+                syncPrice(pid, num, price);
+            });
+
+
+            //结算 提交按钮
+            $("button.createOrderButton").click(function () {
+                var params = "";
+                $(".cartProductItemIfSelected").each(function () {
+                    if ("selectit" == $(this).attr("selectit")) {
+                        var oiid = $(this).attr("oiid");
+                        params += "&oiid=" + oiid;
+                    }
+                });
+                params = params.substring(1);
+                location.href = "buy?" + params;
+            });
+        }
+
+        //结算按钮颜色，若没有选中则按钮为灰色
+        function syncCreateOrderButton() {
+            var selectAny = false;
+            $(".cartProductItemIfSelected").each(function () {
+                if ("selectit" == $(this).attr("selectit")) {
+                    selectAny = true;
+                }
+            });
+
+            if (selectAny) {
+                $("button.createOrderButton").css("background-color", "#C40000");
+                $("button.createOrderButton").removeAttr("disabled");
+            } else {
+                $("button.createOrderButton").css("background-color", "#AAAAAA");
+                $("button.createOrderButton").attr("disabled", "disabled");
+            }
+        }
+
+        //全选按钮
+        function syncSelect() {
+            var selectAll = true;
+            $(".cartProductItemIfSelected").each(function () {
+                if ("false" == $(this).attr("selectit")) {
+                    selectAll = false;
+                }
+            });
+
+            if (selectAll)
+                $("img.selectAllItem").attr("src", "img/front/cartSelected.png");
+            else
+                $("img.selectAllItem").attr("src", "img/front/cartNotSelected.png");
+
+        }
+
+        //计算勾中项的总价
+        function calcCartSumPriceAndNumber() {
+            var sum = 0;
+            var totalNumber = 0;
+
+            $("img.cartProductItemIfSelected[selectit='selectit']").each(function () {
+                var oiid = $(this).attr("oiid");
+
+                var price = $(".cartProductItemSmallSumPrice[oiid=" + oiid + "]").text();
+                price = price.replace(/,/g, "");
+                price = price.replace(/￥/g, "");
+                sum += new Number(price);
+                var num = $(".orderItemNumberSetting[oiid=" + oiid + "]").val();
+                totalNumber += new Number(num);
+            });
+
+            $("span.cartSumPrice").html("￥" + formatMoney(sum));
+            $("span.cartTitlePrice").html("￥" + formatMoney(sum));
+            $("span.cartSumNumber").html("x" + totalNumber);
+        }
+
+
+        //同步数量框跟价格
+        function syncPrice(pid,num,price){
+            $(".orderItemNumberSetting[pid="+pid+"]").val(num);
+            var cartProductItemSmallSumPrice = formatMoney(num*price);
+            $(".cartProductItemSmallSumPrice[pid="+pid+"]").html("￥"+cartProductItemSmallSumPrice);
+            calcCartSumPriceAndNumber();
+
+            var url = "frontChangeOrderItem?pid="+pid+"&num="+num;
+            axios.get(url).then(function(response){
+                if(1!=response.data.code){
+                    location.href="login";
+                }
+            });
+        }
+    </script>
+
+    <div class="bgDiv">
+        <div class="order-detail-area">
+            <div class="buyChose">
+                <img src="img/front/cartNotSelected.png" selectit="false" class="selectAllItem">
+                <span class="abc">全选</span>
+
+                <span class="abc">商品</span>
+
+                <div class="buyChose-right pull-right" >
+                    <span>单价</span>
+                    <span>数量</span>
+                    <span>小计</span>
+                    <span style="margin-right: 140px">操作</span>
+                </div>
+            </div>
+
+            <div style="height: 10px; background-color:rgb(245,245,245);"></div>
+
+            <div class="order-cart-content" v-for="oi in orderItems">
+                <div class="order-cart-detail">
+                    <img selectit="false" :oiid="oi.id" class="cartProductItemIfSelected"
+                         src="img/front/cartNotSelected.png">
+                    <a style="display:none" href="#nowhere"><img src="img/front/cartSelected.png"></a>
+
+                    <img class="order-cart-img"
+                         :src="'image/img/productSingle/' + oi.product.firstProductImage.id + '.jpg'" alt="">
+
+                    <a href="#" class="order-detail-name"><span>{{oi.product.name}}</span></a>
+                    <div class="pull-right" style="margin-top: 43px">
+                        <ul>
+                            <li><a href=""><span class="orderItemPromotePrice" :pid="oi.product.id">￥ {{oi.product.promotePrice|formatMoneyFilter}}</span></a></li>
+                            <li>
+                                <!-- 操作数量 -->
+                                <div class="cartProductChangeNumberDiv">
+                                    <span class="hidden orderItemStock " :pid="oi.product.id">{{oi.product.stock}}</span>
+                                    <span class="hidden orderItemOriginalPrice" :pid="oi.product.id">{{oi.product.originalPrice}}</span>
+                                    <span class="hidden oiid">{{oi.id }}</span>
+                                    <a :pid="oi.product.id" class="numberMinus" href="#nowhere">-</a>
+                                    <input :pid="oi.product.id" :oiid="oi.id" class="orderItemNumberSetting" autocomplete="off"
+                                           readonly="readonly" :value="oi.number">
+                                    <a :stock="oi.product.stock" :pid="oi.product.id" class="numberPlus" href="#nowhere">+</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <span class="cartProductItemSmallSumPrice" :oiid="oi.id" :pid="oi.product.id">
+                                    ￥ {{oi.product.promotePrice*oi.number|formatMoneyFilter}}
+                                 </span>
+                            </li>
+
+                            <li><a class="deleteOrderItem" :oiid="oi.id" href="#nowhere">删除</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 30px; background-color:rgb(245,245,245);"></div>
+
+            <div class="order-commit">
+                <div class="order-commit-content">
+                    <div>应付总额：<span class="cartSumPrice"> ¥0.00</span></div>
+
+                    <div>已选商品： <span class="cartSumNumber" >0</span> </div>
+
+                    <div>
+                        <button class="createOrderButton" disabled="disabled">结&nbsp;&nbsp;算</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="height: 30px; background-color:rgb(245,245,245);"></div>
+</div>
+
+</body>
+</html>

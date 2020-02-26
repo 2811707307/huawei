@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="include/front/frontHeader :: header(title=${'用户注册'})"></head>
+<body>
+<div id="workingArea">
+<div th:replace="include/front/frontNavigator :: topNavigator"></div>
+
+<div th:replace="include/front/registerPage :: registerPage"></div>
+
+<div th:replace="include/front/footer :: footer"></div>
+<div th:replace="include/front/footer :: footer1"></div>
+<div th:replace="include/front/footer :: footer2"></div>
+</div>
+</body>
+</html>

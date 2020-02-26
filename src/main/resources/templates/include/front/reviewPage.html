@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="html">
+    <script>
+        $(function () {
+            var oid = getUrlParms("oid");
+            var data4Vue = {
+                uri: 'frontReview',
+                orders: [],
+                p: '',
+                o: null,
+                reviews: [],
+                showReviews: false,
+                content: ''
+            };
+            //ViewModel
+            var vue = new Vue({
+                el: '#workingArea',
+                data: data4Vue,
+                mounted: function () { //mounted　表示这个 Vue 对象加载成功了
+                    this.load();
+                },
+                methods: {
+                    load: function () {
+                        var url = this.uri + "?oid=" + oid;
+                        axios.get(url).then(function (response) {
+                            var result = response.data;
+                            vue.p = result.data.p;
+                            vue.o = result.data.o;
+                            vue.reviews = result.data.reviews;
+
+                        });
+                    },
+                    doReview: function () {
+                        var url = "frontDoReview?oid=" + vue.o.id + "&pid=" + vue.p.id + "&content=" + vue.content;
+                        axios.post(url).then(function (response) {
+                            var result = response.data;
+                            vue.showReviews = true;
+                            vue.load();
+                        });
+                    }
+                }
+            });
+        })
+    </script>
+    <div class="reviewDiv">
+
+        <div class="addressDiv">
+            <div class="reviewContent" v-show="!showReviews">
+                <div class="addressHeader">
+                    评价商品*
+                </div>
+
+                <textarea class="form-control textArea" style="height: 300px; "   v-model="content"></textarea>
+                <button @click="doReview" type="submit" class="submitOrderButton" style="display: block; margin: 30px auto 0;">提交评价</button>
+
+            </div>
+
+            <div class="reviewSuccess" v-show="showReviews">
+                <span>感谢您的评价！</span>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

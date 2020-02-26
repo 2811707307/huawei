@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="include/front/frontHeader :: header(title=${'评价订单'})"></head>
+<body>
+<div id="workingArea">
+<div th:replace="include/front/frontNavigator :: topNavigator"></div>
+<div th:replace="include/front/frontSearch :: navigatorSearch"></div>
+
+<div th:replace="include/front/reviewPage :: html"></div>
+
+
+<div th:replace="include/front/footer::footer"></div>
+<div th:replace="include/front/footer::footer1"></div>
+<div th:replace="include/front/footer::footer2"></div>
+</div>
+</body>
+</html>

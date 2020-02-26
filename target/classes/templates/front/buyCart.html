@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="include/front/frontHeader :: header(title=${'购物车'})"></head>
+
+<body>
+<div id="workingArea">
+    <div th:replace="include/front/frontNavigator :: topNavigator"></div>
+    <div th:replace="include/front/buyCartNavigator :: html"></div>
+
+    <div th:replace="include/front/buyCartPage :: html"></div>
+
+    <div th:replace="include/front/footer::footer"></div>
+    <div th:replace="include/front/footer::footer1"></div>
+    <div th:replace="include/front/footer::footer2"></div>
+</div>
+
+</body>
+</html>

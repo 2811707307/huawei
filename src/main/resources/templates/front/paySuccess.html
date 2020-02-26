@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="include/front/frontHeader :: header(title=${'支付页面'})"></head>
+
+<body>
+
+<div id="workingArea">
+<div th:replace="include/front/frontNavigator :: topNavigator"></div>
+<div th:replace="include/front/paySuccessNavigator :: html"></div>
+
+<div th:replace="include/front/paySuceessPage :: html"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1434 @@
+/*public*/
+body {
+    font-size: 12px;
+    font-family: "Adobe 仿宋 Std R", monospace;
+}
+
+/* frontNavigator */
+.drop {
+    display: inline-block;
+    position: relative;
+}
+
+.drop-content {
+    display: none;
+    position: absolute;
+    background: green;
+    width: 400px;
+    height: 200px;
+    right: 0;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+.drop:hover .drop-content {
+    display: block;
+}
+
+.navigator {
+    height: 40px;
+    background: rgb(249, 249, 249);
+
+}
+
+.navigator a {
+    text-decoration: none;
+    color: #999;
+    margin-left: 10px;
+}
+
+.shopping-cart {
+    background-color: rgb(242, 242, 242);
+}
+
+.shopping-cart:hover {
+    background-color: white;
+}
+
+.navigator a:hover {
+    color: #c40000;
+}
+
+.navigator-center {
+    width: 1200px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+
+}
+
+/* frontSearch */
+.search {
+    height: 70px;
+    box-shadow: 0 2px 3px -1px rgb(225, 225, 225);
+}
+
+.search-center {
+    width: 1200px;
+    height: 70px;
+    line-height: 70px;
+    margin: 0 auto;
+}
+
+.search-center a {
+    text-decoration: none;
+    color: black;
+    font-family: "Microsoft YaHei UI", serif;
+    font-size: 16px;
+    margin: 25px 10px 0;
+}
+
+.search-img {
+    display: inline-block;
+}
+
+.search-center img {
+    height: 35px;
+}
+
+.drop-search {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    height: 55px;
+}
+
+
+.drop-search:hover .drop-search-content {
+    display: block;
+}
+
+.drop-search:hover {
+    border-bottom: 2px solid #c40000;
+}
+
+.drop-search:hover a {
+    color: #c40000;
+}
+
+.drop-search-content-center {
+    width: 1200px;
+    height: 200px;
+    position: absolute;
+    left: 380px;
+}
+
+.search-bar-form {
+    line-height: 2;
+    width: 318px;
+    height: 28px;
+    background: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    position: relative;
+    z-index: 310;
+    top: 30px;
+}
+
+.search-bar-form .input-text {
+    border-radius: 15px;
+    width: 275px;
+    height: 28px;
+    padding-left: 15px;
+    /* 取消input框的样式 */
+    background: none;
+    outline: none;
+    border: 0;
+}
+
+.search-bar-form .input-submit {
+    background: none;
+    outline: none;
+    border: 0;
+    opacity: 0.15;
+    margin-top: 0;
+}
+
+/* lunbo.html */
+.lunbo {
+    margin-top: 6px;
+}
+
+.cibg {
+    background-color: green !important;
+    opacity: 0.2 !important;
+}
+
+.control-button {
+    opacity: 0 !important;
+}
+
+/* footer.html */
+.footer {
+    background-color: rgb(249, 249, 249);
+}
+
+.footer-img {
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.footer-img img {
+    height: 80px;
+}
+
+.footer2 {
+    background-color: rgb(249, 249, 249) !important;
+}
+
+.footer2-content {
+    width: 1200px;
+    border-top: 1px solid rgb(229, 229, 229);
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.white_link {
+    text-align: center;
+    padding-top: 10px;;
+}
+
+.white_link a {
+    text-decoration: none;
+    color: rgb(153, 153, 153);
+    margin-left: 3px;
+}
+
+.white_link a:hover {
+    color: #c40000;
+}
+
+.license {
+    text-align: center;
+}
+
+.footer1 {
+    background-color: rgb(249, 249, 249) !important;
+}
+
+.footer1-content {
+    width: 1200px;
+    height: 170px;
+    margin: 0 auto;
+    border-top: 1px solid rgb(229, 229, 229);
+}
+
+.contentDIV {
+    display: inline-block;
+    margin-top: 30px;
+    margin-right: 50px;
+    float: left;
+}
+
+.contentDIV a {
+    text-decoration: none;
+    color: #999;
+}
+
+.contentDIV a:hover {
+    color: #c40000;
+}
+
+#contentDIV {
+    border-right: 1px solid rgb(229, 229, 229);
+    padding-right: 38px;
+    height: 120px;
+}
+
+.first-li {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.contentDIV ul {
+    list-style: none;
+}
+
+.title {
+    font-size: 20px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.p-div img {
+    height: 28px;
+    margin-right: 5px;
+    padding-left: 12px;
+}
+
+/* register.html */
+div.registerDiv {
+    text-align: center;
+    background-color: rgb(8,23,56);
+}
+
+table.registerTable {
+   position: absolute;
+    top: 280px;
+    left: 900px;
+    color: white;
+
+}
+
+table.registerTable td {
+    /* 	border:1px dotted skyblue !important; */
+    padding: 10px 30px;
+}
+
+td.registerTableLeftTD {
+    width: 300px;
+    text-align: right;
+}
+
+td.registerTableRightTD {
+    width: 300px;
+    text-align: left;
+}
+
+td.registerTip {
+    font-weight: bold;
+}
+
+table.registerTable input {
+    border: 1px solid #DEDEDE;
+    width: 213px;
+    height: 36px;
+    font-size: 14px;
+}
+
+td.registerButtonTD {
+    text-align: center;
+}
+
+div.registerErrorMessageDiv {
+    visibility: hidden;
+    position: absolute;
+    top: 260px;
+    left: 1230px;
+}
+
+table.registerTable button {
+    width: 170px;
+    height: 36px;
+    border-radius: 2px;
+    color: white;
+    background-color: #C40000;
+    border-width: 0;
+}
+
+.text-success {
+    text-align: center;
+}
+
+.text-success span {
+    font-size: 15px;
+}
+
+.text-success a {
+    text-decoration: none;
+    color: #2e6da4;
+}
+
+/* login.html */
+img.loginBackgroundImg {
+    display: block;
+    margin: 0 auto;
+}
+
+div.loginDivInProductPageModalDiv {
+    margin-top: 250px;
+    width: 350px;
+
+}
+
+div.loginDivInProductPage {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div.modal-content {
+    width: 350px;
+    height: 400px;
+}
+
+.loginDiv {
+    background-color: rgb(8, 23, 56);
+}
+
+div.loginSmallDiv {
+    background-color: white;
+    position: absolute;
+    right: 180px;
+    top: 130px;
+    width: 350px;
+    height: 400px;
+    padding: 60px 25px 80px 25px;
+}
+
+div.loginErrorMessageDiv {
+    position: absolute;
+    top: 10px;
+    width: 300px;
+    visibility: hidden;
+}
+
+div.loginErrorMessageDiv div.alert {
+    padding: 5px !important;
+}
+
+div.login_acount_text {
+    color: #3C3C3C;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.loginInput {
+    border: 1px solid #CBCBCB;
+    margin: 20px 0;
+}
+
+div.loginInput input {
+    display: inline-block;
+    border: 0 solid transparent;
+    width: 250px;
+    height: 30px;
+    position: relative;
+    left: -5px;
+    top: 3px;
+    outline: none;
+}
+
+.text-a a {
+    text-decoration: none;
+    color: #999;
+}
+
+.text-a a:hover {
+    color: #c40000;
+}
+
+div.loginInput span, div.loginInput input {
+    display: inline-block;
+}
+
+div.loginInput span.loginInputIcon {
+    margin: 0;
+    background-color: #CBCBCB;
+    width: 40px;
+    height: 40px;
+}
+
+span.loginInputIcon span.glyphicon {
+    font-size: 22px;
+    position: relative;
+    left: 9px;
+    top: 9px;
+    color: #606060;
+}
+
+button.redButton {
+    color: white;
+    background-color: #C40000;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 25px;
+}
+
+/* productPage.html */
+div.productPageDiv {
+    max-width: 1100px;
+    margin: 10px auto;
+}
+
+/* imgAndInfo.html */
+.breadcrumb {
+    background: white !important;
+    padding: 0;
+    margin: 0 0 0 20px;
+}
+
+.breadcrumb a {
+    color: rgb(119, 119, 119);
+    text-decoration: none;
+}
+
+div.imgAndInfo {
+    margin: 20px 20px;
+
+}
+
+div.imgAndInfo img.bigImg {
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+
+}
+
+div.imgAndInfo div.smallImageDiv {
+    width: 80%;
+    margin: 20px auto;
+}
+
+div.imgAndInfo img.smallImage {
+    width: 60px;
+    height: 60px;
+    border: 2px solid white;
+}
+
+div.imgAndInfo img.smallImage:hover {
+    border: 2px solid #b58812;
+
+}
+
+div.imgInimgAndInfo {
+    width: 400px;
+    float: left;
+}
+
+div.infoInimgAndInfo {
+    overflow: hidden;
+    padding: 20px 20px 0 50px;
+}
+
+div.infoInimgAndInfo div.productTitle {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+div.infoInimgAndInfo div.productSubTitle {
+    color: #DD2727;
+    font-size: 12px;
+    /* 	font-weight:bold; */
+    margin: 0 10px;
+    width: 550px;
+}
+
+
+div.infoInimgAndInfo div.youhuiquanDiv {
+    margin-top: 5px;
+}
+
+
+div.infoInimgAndInfo div.originalDiv {
+    margin-top: 5px;
+}
+
+div.infoInimgAndInfo div.promotionDiv {
+    margin-top: 0;
+}
+
+div.infoInimgAndInfo div.productPriceDiv {
+    background: rgb(245, 245, 245);
+    height: 102px;
+    padding: 10px;
+    color: #666666;
+}
+
+div.infoInimgAndInfo span.originalPriceDesc {
+    color: #999999;
+    display: inline-block;
+    width: 68px;
+}
+
+div.infoInimgAndInfo span.promotionPriceDesc {
+    color: #999999;
+    display: inline-block;
+    width: 68px;
+    position: relative;
+    left: 0;
+    top: -10px;
+}
+
+div.infoInimgAndInfo span.originalPriceYuan {
+    font-family: Arial, serif;
+    font-size: 12px;
+}
+
+div.infoInimgAndInfo span.originalPrice {
+    font-family: Arial, serif;
+    font-size: 12px;
+    color: #333333;
+    text-decoration: line-through;
+}
+
+div.infoInimgAndInfo span.promotionPriceYuan {
+    font-family: Arial, serif;
+    font-size: 18px;
+    color: #C40000;
+    /*     vertical-align: top; */
+}
+
+div.infoInimgAndInfo span.promotionPrice {
+    color: #c40000;
+    font-family: Arial, serif;
+    font-size: 30px;
+    font-weight: bold;
+    /*     vertical-align: top; */
+    /*     vertical-align: middle; */
+}
+
+div.infoInimgAndInfo div.productSaleAndReviewNumber {
+    margin: 20px 0;
+    border-top-style: dotted;
+    border-top-color: #C9C9C9;
+    border-top-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: #C9C9C9;
+    border-bottom-width: 1px;
+    padding: 10px;
+}
+
+div.infoInimgAndInfo div.productSaleAndReviewNumber div {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    color: #999999;
+    font-size: 12px;
+}
+
+div.infoInimgAndInfo div.productSaleAndReviewNumber div:first-child {
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #E5DFDA;
+}
+
+div.infoInimgAndInfo div.productNumber {
+    color: #999999;
+}
+
+div.infoInimgAndInfo span.productNumberSettingSpan {
+    border: 1px solid #999;
+    display: inline-block;
+    width: 43px;
+    height: 32px;
+    padding: 7px 0;
+}
+
+div.infoInimgAndInfo input.productNumberSetting {
+    border: 0;
+    height: 80%;
+    width: 80%;
+    outline: none;
+}
+
+div.infoInimgAndInfo div.productNumber {
+    color: #999999;
+}
+
+div.infoInimgAndInfo span.productNumberSettingSpan {
+    border: 1px solid #999;
+    display: inline-block;
+    width: 43px;
+    height: 32px;
+    padding: 7px 0;
+}
+
+div.infoInimgAndInfo input.productNumberSetting {
+    border: 0;
+    height: 80%;
+    width: 80%;
+}
+
+div.productNumber span.glyphicon {
+    font-size: 6px;
+}
+
+div.productNumber span.arrow {
+    display: inline-block;
+    width: 22px;
+    height: 32px;
+    vertical-align: top;
+}
+
+div.productNumber span.updown img {
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.productNumber span.updown {
+    border: 1px solid #999;
+    display: block;
+    width: 20px;
+    height: 14px;
+    text-align: center;
+    padding-top: 4px;
+}
+
+div.productNumber span.updownMiddle {
+    height: 4px;
+    display: block;
+}
+
+div.serviceCommitment {
+    margin: 20px 0;
+}
+
+div.infoInimgAndInfo span.serviceCommitmentDesc {
+    color: #999999;
+}
+
+div.infoInimgAndInfo span.serviceCommitmentLink a {
+    color: #666666;
+    text-decoration: none;
+}
+
+div.infoInimgAndInfo span.serviceCommitmentLink a:hover {
+    color: #C40000;
+}
+
+div.buyDiv {
+    margin: 20px auto;
+    text-align: center;
+}
+
+div.buyDiv button {
+    display: inline-block;
+    margin: 0 10px;
+    width: 180px;
+    height: 40px;
+}
+
+
+button.buyButton {
+    border: 1px solid #C40000;
+    background-color: #FFEDED;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    /* 	font-weight:700; */
+    color: #C40000;
+    font-family: arial, serif;
+}
+
+button.addCartButton {
+    border: 1px solid #C40000;
+    background-color: #C40000;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    /* 	font-weight:700; */
+    color: white;
+    font-family: arial, serif;
+}
+
+button.addCartButton span.glyphicon {
+    font-size: 12px;
+    margin-right: 8px;
+}
+
+/* productDetail.html */
+.middleNavigatorDiv {
+    width: 1200px;
+    height: 100px;
+    border-top: 1px solid rgb(225, 225, 225);
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 0 2px 3px -1px rgb(225, 225, 225);
+    margin: 0 auto 2px;
+}
+
+.middleNavigatorDiv a {
+    text-decoration: none;
+    color: rgb(164, 164, 164);
+    font-size: 18px;
+    margin: 30px;
+}
+
+.productDetailImagesDiv {
+    width: 100%;
+    margin: 0 auto 40px;
+
+}
+
+.productDetailImagesDiv img {
+    width: 100%;
+}
+
+.productParameterDiv {
+    width: 1200px;
+    margin: 0 auto;
+
+}
+
+.productParameterHeaderDiv {
+    width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgb(225, 225, 225);
+}
+
+.productParameterHeaderDiv .productParameterHeader {
+    margin-bottom: 15px;
+    border-left: 5px solid #c40000;
+    padding: 0 5px;
+    font-size: 20px !important;
+}
+
+.productParameterDiv .productParameterList {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+
+.productParameterDiv .productParameterList ul {
+    list-style: none;
+    font-size: 13px;
+    color: rgb(58, 58, 58);
+    margin-top: 6px;
+}
+
+
+.productParameterDiv .productParameterList span {
+    margin-right: 80px;
+    float: left;
+    width: 845px;
+    margin-bottom: 20px;
+    font-family: Helvetica, serif;
+}
+
+.productParameterDiv .productParameterList lable {
+    float: left;
+    width: 128px;
+}
+
+.productParameterDiv .productParameter {
+    display: inline-block;
+    float: left;
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+/* productReview.html */
+.productReviewDiv {
+    width: 1200px;
+    margin: 30px auto 0;
+}
+
+.productReviewItem {
+    width: 900px;
+    margin: 0 auto;
+    font-size: 14px;
+    border-bottom: 1px solid rgb(225, 225, 225);
+    padding: 50px;
+}
+
+.productReviewItemDesc {
+    float: left;
+}
+
+.productReviewItemDesc .productReviewItemDate {
+    color: rgb(165, 165, 165);
+    padding-top: 10px;
+}
+
+.productReviewItemUserInfo {
+    padding-top: 12px;
+    float: right;
+}
+
+.productReviewItemUserInfo span {
+    color: rgb(165, 165, 165);
+}
+
+
+/* searchPage */
+.searchProducts {
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 500px;
+    clear: both;
+
+}
+
+.searchResultDiv {
+    background-color: rgb(245, 245, 245);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.productUnit img {
+    width: 220px;
+    height: 220px;
+}
+
+.productUnit {
+    width: 220px;
+    display: inline-block;
+    height: 300px;
+    background-color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.productUnit .productLink {
+    text-decoration: none;
+    float: left;
+    margin-left: 10px;
+    font-size: 13px;
+    color: black;
+    font-family: "Microsoft YaHei UI", serif;
+    margin-top: 5px;
+}
+
+.searchResultTitle {
+    font-size: 13px;
+    font-family: "Microsoft YaHei UI", serif;
+    margin-bottom: 5px;
+}
+
+.searchResultTitle span {
+    font-weight: bold;
+}
+
+.productUnit:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.productUnit .productP a {
+    color: #C40000;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: "Microsoft YaHei UI", serif;
+    margin-left: 9px;
+}
+
+.productP {
+    height: 20px;
+    margin-top: 50px;
+}
+
+/* buy.html */
+.affirm-order {
+    font-size: 20px;
+    font-family: "Microsoft YaHei UI", serif;
+}
+
+.progress {
+    width: 400px;
+    margin-top: 25px;
+}
+
+.addressDiv {
+    width: 1200px;
+    margin: 0 auto;
+    height: 250px;
+    background-color: white;
+    clear: both;
+}
+
+
+.bgDiv {
+    background-color: rgb(245, 245, 245);
+    padding-top: 20px;
+}
+
+.addressHeader {
+    padding-left: 20px;
+    padding-top: 10px;
+    font-family: "Microsoft YaHei UI", serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.addressContent .textArea {
+    width: 400px;
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.addressContent span {
+    margin-left: 50px;
+    font-size: 14px;
+    font-family: "Microsoft YaHei UI", serif;
+}
+
+.addressTable {
+    margin-top: 30px;
+}
+
+.order-detail-area {
+    width: 1200px;
+    background-color: white;
+    margin: 30px auto 0;
+    overflow: hidden;
+}
+
+.order-detail-area .order-detail-content {
+    width: 1120px;
+
+    margin: 30px auto;
+}
+
+.order-detail-content .order-detail {
+    width: 1120px;
+    float: left;
+
+    margin-bottom: 20px;
+}
+
+.order-detail-content .order-detail img {
+    width: 100px;
+    height: 100px;
+    margin: 29px;
+    float: left;
+}
+
+.order-detail .order-detail-name {
+    width: 400px;
+}
+
+.order-detail a {
+    margin-right: 120px;
+    font-family: "Microsoft YaHei UI", serif;
+    font-size: 15px;
+    margin-top: 50px;
+    float: left;
+    text-decoration: none;
+    color: black;
+}
+
+.order-commit {
+    width: 1200px;
+    height: 200px;
+    background-color: white;
+    margin: 30px auto 0;
+    padding-top: 40px;
+}
+
+
+.order-commit .order-commit-content {
+    float: right;
+    font-size: 18px;
+    font-family: "Microsoft YaHei UI", serif;
+
+}
+
+.order-commit .order-commit-content span {
+    margin-left: 30px;
+    float: right;
+    padding-right: 20px;
+    color: #C40000;
+
+}
+
+.order-commit .order-commit-content div {
+    margin-top: 10px;
+}
+
+.submitOrderButton {
+    border: 1px solid #C40000;
+    background-color: #c40000;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+    width: 150px;
+    color: white;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+/* buyCart.html */
+.buyChose {
+    width: 1200px;
+    margin: 0 auto;
+    height: 40px;
+}
+
+.buyChose .selectAllItem {
+    margin-left: 80px;
+}
+
+.buyChose .abc {
+    line-height: 40px;
+    margin-left: 5px;
+    color: rgb(164, 164, 164);
+    font-family: "Microsoft YaHei UI", serif;
+    margin-right: 100px;
+}
+
+.buyChose-right span {
+    font-family: "Microsoft YaHei UI", serif;
+    margin-right: 95px;
+    line-height: 40px;
+    color: rgb(164, 164, 164);
+}
+
+.order-cart-content {
+    width: 1120px;
+    margin: 30px auto;
+
+}
+
+.order-cart-content .order-cart-detail {
+    margin-left: 40px;
+}
+
+.order-cart-detail .order-cart-img {
+    width: 100px;
+    height: 100px;
+}
+
+.order-detail-name {
+    margin-left: 33px;
+    font-size: 15px;
+    width: 330px;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-family: "Microsoft YaHei UI", serif;
+    padding-top: 40px;
+}
+
+.order-cart-detail a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.order-cart-detail .pull-right a {
+    font-size: 15px;
+    font-family: "Microsoft YaHei UI", serif;
+    text-decoration: none;
+    color: black;
+}
+
+.cartProductChangeNumberDiv {
+    display: inline-block;
+}
+
+.cartProductChangeNumberDiv .orderItemNumberSetting {
+    width: 25px;
+}
+
+.createOrderButton {
+    border: 1px solid #C40000;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+    width: 150px;
+    color: white;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.orderItemPromotePrice {
+    color: #C40000;
+    font-size: 16px;
+}
+
+.pull-right ul {
+    list-style: none;
+
+}
+
+.pull-right ul li {
+    display: inline-block;
+    float: left;
+    width: 130px;
+}
+
+.cartProductItemSmallSumPrice {
+    font-size: 14px;
+    color: #C40000;
+    font-family: "Microsoft YaHei UI", serif;
+}
+
+.deleteOrderItem {
+    color: rgb(164, 164, 164) !important;
+}
+
+/* pay.html */
+span.confirmMoneyText {
+    color: #4D4D4D;
+}
+
+span.confirmMoney {
+    display: block;
+    color: #FF6600;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px;
+}
+
+div.PayPageDiv {
+    text-align: center;
+    padding-bottom: 40px;
+    max-width: 1013px;
+    margin: 50px auto 10px;
+}
+
+button.confirmPay {
+    background-color: #00AAEE;
+    border: 1px solid #00AAEE;
+    text-align: center;
+    line-height: 31px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    width: 107px;
+    margin-top: 20px;
+}
+
+.PayPageDiv img {
+    width: 300px;
+}
+
+/* paySuccess.html */
+div.payedDiv {
+    border: 1px solid #D4D4D4;
+    max-width: 1013px;
+    margin: 10px auto 20px auto;
+}
+
+div.payedTextDiv {
+    height: 61px;
+    background-color: #ECFFDC;
+    padding: 17px 0px 0px 25px;
+}
+
+div.payedTextDiv span {
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+div.payedAddressInfo {
+    padding: 26px 35px;
+}
+
+div.payedAddressInfo li {
+    background-image: url("../../img/front/li_dot.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-attachment: scroll;
+    background-position: 0 13px;
+    list-style-type: none;
+    color: #333333;
+    padding-left: 15px;
+    padding-top: 5px;
+    /* 	background: rgba(0, 0, 0, 0) url("../../img/site/li_dot.png") no-repeat scroll 0 13px; */
+}
+
+span.payedInfoPrice {
+    color: #B10000;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: arial;
+}
+
+a.payedCheckLink {
+    color: #2D8CBA;
+}
+
+a.payedCheckLink:hover {
+    color: #2D8CBA;
+    text-decoration: underline;
+}
+
+div.payedCheckLinkDiv {
+    margin-left: 38px;
+}
+
+/* boughtPage.html */
+div.boughtDiv {
+    max-width: 1013px;
+    margin: 10px auto;
+    min-height: 500px;
+}
+
+div.orderType div.selectedOrderType {
+    border-bottom: 2px solid #C40000;
+}
+
+div.orderType div {
+    border-bottom: 2px solid #E8E8E8;
+    float: left;
+}
+
+table.orderListTitleTable {
+    border: 1px solid #E8E8E8;
+    width: 100%;
+    margin: 20px 0px;
+    background-color: #F5F5F5;
+    text-align: center;
+}
+
+table.orderListTitleTable td {
+    padding: 12px 0px;
+}
+
+div.orderType a {
+    border-right: 1px solid #E8E8E8;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+    padding: 0px 20px;
+    text-decoration: none;
+}
+
+div.orderType div.selectedOrderType a {
+    color: #C40000;
+}
+
+div.orderType a:hover {
+    color: #C40000;
+    text-decoration: none;
+}
+
+div.orderTypeLastOne {
+    overflow: hidden;
+    float: none !important;
+    border-bottom: 2px solid #E8E8E8;
+    padding-top: 22px;
+}
+
+a.noRightborder {
+    border-right-width: 0px !important;
+}
+
+table.orderListItemTable {
+    border: 2px solid #ECECEC;
+    width: 100%;
+    margin: 20px 0px;
+}
+
+table.orderListItemTable:hover {
+    border: 2px solid #aaa !important;
+}
+
+tr.orderListItemFirstTR {
+    background-color: #F1F1F1;
+    font-size:12px;
+}
+
+table.orderListItemTable td {
+    padding: 8px 10px;
+}
+
+
+span.orderListItemDelete {
+    display: inline-block;
+    margin: 0px 10px;
+    color: #999999;
+    font-size: 16px;
+}
+
+div.orderListItemProductLinkOutDiv {
+    position: relative;
+    height: 80px;
+    font-size:12px;
+    padding-top: 20px;
+}
+
+div.orderListItemProductLinkOutDiv a{
+    text-decoration: none;
+    padding-top: 30px;
+}
+
+div.orderListItemProductLinkInnerDiv {
+    position: absolute;
+    bottom: 0px;
+}
+
+div.orderListItemProductOriginalPrice {
+    color: #999999;
+    font-size: 14px;
+}
+
+div.orderListItemProductPrice {
+    color: #3C3C3C;
+    font-size: 14px;
+}
+
+div.orderListItemProductRealPrice {
+    color: #3C3C3C;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 70px;
+}
+
+div.orderListItemPriceWithTransport {
+    color: #6C6C6C;
+    font-size: 12px;
+}
+
+
+button.orderListItemConfirm {
+    background-color: #66B6FF;
+    border-radius: 2px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-width: 0px;
+    padding: 6px 12px;
+    margin-top: 20px;
+}
+
+button.orderListItemConfirm:hover {
+    background-color: #118ADB;
+}
+
+button.orderListItemReview {
+    border: 1px solid #DCDCDC;
+    background-color: #fff;
+    border-radius: 2px;
+    color: #3C3C3C;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 12px;
+    margin-top: 20px;
+}
+
+button.orderListItemReview:hover {
+    border-color: #C40000;
+    color: #C40000;
+
+}
+
+td.orderItemDeleteTD {
+    text-align: right;
+}
+
+td.orderListItemButtonTD {
+    text-align: center;
+}
+
+span.orderListItemNumber {
+    color: #3C3C3C;
+    line-height: 70px;
+}
+
+td.orderListItemNumberTD {
+    text-align: center;
+}
+
+/* review.html */
+.reviewDiv{
+    min-height: 500px;
+    padding: 50px;
+}
+
+.reviewContent{
+    margin: 0 auto;
+}
+
+.reviewSuccess{
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.reviewSuccess span{
+    margin-top: 80px;
+    font-size: 25px;
+    color: #C40000;
+}

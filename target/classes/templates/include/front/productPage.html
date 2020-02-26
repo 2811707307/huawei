@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="productPage" >
+    <script>
+        $(function () {
+            var pid = getUrlParms("pid");
+            var data4Vue = {
+                uri:'frontProduct',
+                p:null,
+                category:null,
+                firstProductImage:null,
+                pvs:[],
+                reviews:[],
+                user:{name:'', password:''}
+            };
+
+            //ViewModel
+            var vue = new Vue({
+                el: '#workingArea',
+                data: data4Vue,
+                mounted:function () {
+                    this.load();
+                },
+                methods:{
+                    load:function () {
+                        var url = this.uri + "/" + pid;
+
+                        axios.get(url).then(function (response) {
+                            var result = response.data;
+                            vue.p=result.data.product;
+                            //propertyValues
+                            vue.pvs=result.data.pvs;
+                            console.log(vue.pvs);
+                            //评论
+                            vue.reviews=result.data.reviews;
+                            vue.category = vue.p.category;
+                            vue.firstProductImage = vue.p.firstProductImage;
+                            vue.$nextTick(function () {
+                                imgAndInfoPageRegisterListeners(vue);
+                            });
+                        });
+                    }
+                }
+
+            });
+        });
+    </script>
+
+    <div class="productPageDiv">
+        <div th:replace="include/front/imgAndInfo::imgAndInfo"></div>
+    </div>
+    <div th:replace="include/front/productDetail::html"></div>
+    <div th:replace="include/front/productReview::html"></div>
+</div>
+
+</body>
+</html>

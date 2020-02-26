@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="topNavigator" class="navigator">
+    <div class="navigator-center">
+    <div class="pull-left" >
+        <a href="/home">
+            <span class="glyphicon glyphicon-home"></span>
+            <span>首页</span>
+        </a>
+    </div>
+
+    <div class="pull-right" >
+        <span th:if="${null!=session.user}">
+            <a href="#" th:text="${session.user.name}"></a>
+            <a href="/frontLogout" >退出</a>
+        </span>
+        <span th:if="${null==session.user}">
+        <a href="login">请登录</a>
+        <a href="register">免费注册</a>
+        </span>
+        <a href="bought">我的订单</a>
+        <div class="drop">
+            <div class="shopping-cart">
+            <a href="/buyCart">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                <span>购物车<strong>0</strong>件</span>&nbsp
+            </a>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>
