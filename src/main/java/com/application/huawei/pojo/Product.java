@@ -2,7 +2,6 @@ package com.application.huawei.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,7 +16,6 @@ import java.util.List;
 @Entity
 @Table(name = "product")
 @JsonIgnoreProperties({ "handler","hibernateLazyInitializer"})
-@Document(indexName = "huawei_springboot",type = "product")
 @Data
 public class Product {
     @Id

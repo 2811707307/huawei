@@ -1,9 +1,9 @@
 #database
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/huawei?characterEncoding=UTF-8
+    url: jdbc:mariadb://116.62.161.119:3306/huawei?characterEncoding=UTF-8
     username: root
-    password: 123456
+    password: undivided1996
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     hibernate:
@@ -24,7 +24,7 @@ spring:
   redis:
     database: 0
     port: 6379
-    password: handsomehuang
+    password: undivided1996
     timeout: 3000
     host: 116.62.161.119
     jedis:
@@ -33,9 +33,6 @@ spring:
         max-idle: 300
         max-active: 2000
         max-wait: 1000
-#  data:
-#    elasticsearch:
-#      cluster-nodes: 116.62.161.119:9300
 
 server:
   port: 8080

@@ -34,19 +34,15 @@ public class ProductService {
     OrderItemService orderItemService;
     @Resource
     ReviewService reviewService;
-//    @Resource
-//    ProductESDAO ProductESDAO;
 
     @CacheEvict(allEntries=true)
     public void add(Product bean) {
         productDAO.save(bean);
-//        ProductESDAO.save(bean);
     }
 
     @CacheEvict(allEntries=true)
     public void delete(Product bean) {
         productDAO.delete(bean);
-//        ProductESDAO.delete(bean);
     }
 
     @Cacheable(key="'products-one-'+ #p0")
@@ -62,7 +58,6 @@ public class ProductService {
     @CacheEvict(allEntries=true)
     public void update(Product bean) {
         productDAO.save(bean);
-//        ProductESDAO.save(bean);
     }
 
     @Cacheable(key="'products-cid-'+#p0+'-page-'+#p1 + '-' + #p2 ")
