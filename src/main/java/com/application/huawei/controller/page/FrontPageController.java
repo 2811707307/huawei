@@ -1,4 +1,4 @@
-package com.application.huawei.controller;
+package com.application.huawei.controller.page;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
@@ -42,8 +42,9 @@ public class FrontPageController {
     @GetMapping("/frontLogout")
     public String logout(HttpSession session) {
         Subject subject = SecurityUtils.getSubject();
-        if(subject.isAuthenticated())
+        if(subject.isAuthenticated()) {
             subject.logout();
+        }
         return "redirect:home";
     }
 

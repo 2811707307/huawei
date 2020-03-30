@@ -1,7 +1,6 @@
-package com.application.huawei.web;
+package com.application.huawei.controller.admin;
 
 import com.application.huawei.pojo.Product;
-import com.application.huawei.service.CategoryService;
 import com.application.huawei.service.ProductImageService;
 import com.application.huawei.service.ProductService;
 import com.application.huawei.util.PageUtil;
@@ -11,6 +10,8 @@ import javax.annotation.Resource;
 import java.util.Date;
 
 /**
+ * 后台产品管理API
+ *
  * @Auther: 10199
  * @Date: 2019/10/23 18:21
  * @Description:

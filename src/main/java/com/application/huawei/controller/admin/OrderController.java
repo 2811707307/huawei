@@ -1,4 +1,4 @@
-package com.application.huawei.web;
+package com.application.huawei.controller.admin;
 
 import com.application.huawei.pojo.Order;
 import com.application.huawei.service.OrderItemService;
@@ -11,6 +11,8 @@ import javax.annotation.Resource;
 import java.util.Date;
 
 /**
+ * 后台订单管理API
+ *
  * @Auther: 10199
  * @Date: 2019/10/30 18:53
  * @Description:
@@ -39,6 +41,4 @@ public class OrderController {
         orderService.update(o);
         return ResultUtil.success();
     }
-
-
 }

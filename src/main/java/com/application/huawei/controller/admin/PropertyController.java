@@ -1,4 +1,4 @@
-package com.application.huawei.web;
+package com.application.huawei.controller.admin;
 
 import com.application.huawei.pojo.Property;
 import com.application.huawei.service.PropertyService;
@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 /**
+ * 产品属性管理 API
+ *
  * @Auther: 10199
  * @Date: 2019/10/22 23:55
  * @Description: 属性管理的Controller类
@@ -18,7 +20,6 @@ public class PropertyController {
     @Resource
     PropertyService propertyService;
 
-    //分页列出该分类的属性，一般来说属性不会超过10个，不过为了以防万一还是做了分页功能
     @GetMapping("/categories/{cid}/properties")
     public PageUtil<Property> list(@PathVariable("cid") int cid,
                                    @RequestParam(value = "start", defaultValue = "0") int start,

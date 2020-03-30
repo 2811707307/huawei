@@ -1,4 +1,4 @@
-package com.application.huawei.controller;
+package com.application.huawei.controller.page;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

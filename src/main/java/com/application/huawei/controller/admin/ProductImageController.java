@@ -1,4 +1,4 @@
-package com.application.huawei.web;
+package com.application.huawei.controller.admin;
 
 import com.application.huawei.pojo.Product;
 import com.application.huawei.pojo.ProductImage;
@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 产品图片管理 API
+ *
  * @Auther: 10199
  * @Date: 2019/10/24 20:34
  * @Description:

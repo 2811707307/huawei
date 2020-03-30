@@ -1,4 +1,4 @@
-package com.application.huawei.web;
+package com.application.huawei.controller.web;
 
 import com.alibaba.fastjson.JSON;
 import com.application.huawei.Application;
@@ -30,7 +30,7 @@ import org.springframework.web.context.WebApplicationContext;
 //测试环境使用，用来表示测试环境使用的ApplicationContext将是WebApplicationContext类型的
 @WebAppConfiguration
 @SpringBootConfiguration
-public class AdminControllerTest {
+public class AdminUserControllerTest {
     @Autowired
     private WebApplicationContext webApplicationContext;
     private MockMvc mockMvc;

@@ -1,4 +1,4 @@
-package com.application.huawei.web;
+package com.application.huawei.controller.admin;
 
 import com.application.huawei.pojo.Category;
 import com.application.huawei.service.CategoryService;
@@ -15,8 +15,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Rest规范Controller
- * 尚未解决图片缓存问题，解决思路：使用随机数地址，待测试
+ * 后台分类管理相关接口
  */
 
 @RestController
