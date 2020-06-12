@@ -29,11 +29,4 @@
 ## 运行准备
 
 1. 创建数据库 huawei，导入 huawei.sql 表结构，自带管理员 admin / admin
-2. 导入数据时命令行登录后使用  source c:/xxx 的形式无报错导入
 3. 运行项目，前台地址: localhost:8080     后台地址 localhost:8080/admin
-
-
-
-## 后记
-
-> 打算打包成 Docker 镜像的形式，希望对初学的人有帮助
